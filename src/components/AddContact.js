@@ -22,7 +22,7 @@ export default function AddContact() {
       (contact) => contact.email === email && email
     );
     const checkNumber = contacts.find(
-      (contact) => contact.email === number && number
+      (contact) => parseInt(contact.number) === parseInt(number) && number
     );
 
     if (!name || !email || !number) {

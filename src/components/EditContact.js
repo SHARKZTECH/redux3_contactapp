@@ -34,7 +34,9 @@ export default function EditContact() {
       (contact) => contact.id !== parseInt(id) && contact.email === email
     );
     const checkNumber = contacts.find(
-      (contact) => contact.id !== parseInt(id) && contact.number === number
+      (contact) =>
+        contact.id !== parseInt(id) &&
+        parseInt(contact.number) === parseInt(number)
     );
     if (checkEmail) {
       return toast.error("This Email already exists");
