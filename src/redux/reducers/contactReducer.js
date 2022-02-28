@@ -8,6 +8,18 @@ const contactReducer = (state = initState, { type, payload }) => {
   switch (type) {
     case "ADD":
       return { ...state, contacts: [...state.contacts, payload] };
+    case "EDIT":
+      const uState = state.contacts.map((contact) =>
+        contact.id === payload.id ? payload : contact
+      );
+
+      return { ...state, contacts: uState };
+
+    case "DELETE":
+      const filteredCont = state.contacts.filter(
+        (contact) => contact.id !== payload
+      );
+      return { ...state, contacts: filteredCont };
     default:
       return state;
   }

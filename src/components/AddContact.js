@@ -3,11 +3,12 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function AddContact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [number, setNumber] = useState(7);
+  const [number, setNumber] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,6 +51,9 @@ export default function AddContact() {
   return (
     <Container>
       <h1 className="display-3 text-center my-2">Add Contact</h1>
+      <Link to="/">
+        <h6 className="display-3 text-right my-2">Go back</h6>
+      </Link>
       <Row className="d-flex justify-content-center">
         <Col md={6} mx="auto">
           <Form onSubmit={handleSubmit}>
